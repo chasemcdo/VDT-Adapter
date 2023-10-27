@@ -147,8 +147,8 @@ class ZeroshotCLIP_gpt(TrainerX):
             current_sentences = gpt4_sentences[cl.lower()]
 
             current_sentences = torch.cat([clip.tokenize(c) for c in current_sentences])
-            current_sentences = current_sentences.to('cuda')
-            clip_model = clip_model.to('cuda')
+            current_sentences = current_sentences.to(self.device)
+            clip_model = clip_model.to(self.device)
             with torch.no_grad():
                 current_text_features = clip_model.encode_text(current_sentences)
                 current_text_features = current_text_features / current_text_features.norm(dim=-1, keepdim=True)
