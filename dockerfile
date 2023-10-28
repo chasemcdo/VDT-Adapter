@@ -1,6 +1,4 @@
-FROM continuumio/anaconda3
-
-ENV DATA data
+FROM continuumio/miniconda3
 
 RUN apt update
 RUN apt install -y git
@@ -9,7 +7,7 @@ RUN apt install -y git
 RUN git clone https://github.com/KaiyangZhou/Dassl.pytorch.git
 
 WORKDIR /Dassl.pytorch
-RUN conda install pytorch torchvision cudatoolkit -c pytorch -c conda-forge
+RUN conda install -y pytorch torchvision cudatoolkit -c pytorch -c conda-forge
 RUN pip install -r requirements.txt
 RUN python setup.py develop
 
