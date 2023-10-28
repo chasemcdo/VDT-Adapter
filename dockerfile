@@ -25,3 +25,6 @@ WORKDIR /VDT-Adapter
 
 # # RUN bash scripts/clip/main_gpt.sh caltech-101 vit_b16_c16_ep10_batch1 all zs_gpt_v
 CMD [ "bash", "scripts/clip/main_gpt.sh", "caltech-101", "vit_b16_c16_ep10_batch1", "all", "zs_gpt_v" ]
+
+# Run Notes:
+# `--shm-size 8G` may be required if you run out of shared memory
